@@ -25,6 +25,7 @@ p {
   font-size: 16px;
   color: #333;
   margin-bottom: 10px;
+  text-align: justify;
 }
 
 ul {
@@ -58,7 +59,7 @@ strong {
 .enlarged {
   width: 200px; /* Tamaño aumentado del logo cuando se hace clic */
   height: 200px;
-  transition: width 0.3s, height 0.3s; /* Transición suave para cambiar el tamaño */
+  transition: width 0.5s, height 0.5s; /* Transición suave para cambiar el tamaño */
 }
 
 .encuadrada {
