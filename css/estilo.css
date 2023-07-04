@@ -1,10 +1,71 @@
+/* Estilos personalizados */
 body {
-  background-color: #f8f9fa;
+  background-color: #f6f6f6;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 40px;
 }
 
 h1 {
-  color: #007bff;
-  font-size: 32px;
-  margin-top: 20px;
+  font-size: 36px;
+  color: #ff6f00;
+  text-align: center;
   margin-bottom: 30px;
 }
+
+h3 {
+  font-size: 24px;
+  color: #ff6f00;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+ul {
+  margin-bottom: 15px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+strong {
+  color: #ff6f00;
+}
+
+/* Estilos de Bootstrap */
+.row {
+  margin-bottom: 30px;
+}
+.logo-container {
+  text-align: center;
+}
+
+.rounded-logo {
+  border-radius: 50%;
+  width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
+  height: 100px;
+  border: 2px solid #ff6f00; /* Color y grosor del borde */
+  /* Aquí puedes agregar otros estilos o efectos según tus preferencias */
+}
+
+.enlarged {
+  width: 200px; /* Tamaño aumentado del logo cuando se hace clic */
+  height: 200px;
+  transition: width 0.3s, height 0.3s; /* Transición suave para cambiar el tamaño */
+}
+
+.encuadrada {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
