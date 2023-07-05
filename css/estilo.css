@@ -63,8 +63,8 @@ strong {
 }
 
 .encuadrada {
-  width: 100%;
-  height: auto;
+  width: 50%;
+  height: 50%;
   border: 2px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
