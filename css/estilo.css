@@ -9,17 +9,16 @@ body {
 }
 
 h1 {
-  font-size: 36px;
-  color: #ff6f00;
-  text-align: center;
-  margin-bottom: 30px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+      font-weight: bold;
 }
 
 h3 {
-  font-size: 24px;
-  color: #ff6f00;
-  margin-bottom: 15px;
-}
+ 	  margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
 
 p {
   font-size: 16px;
@@ -29,8 +28,8 @@ p {
 }
 
 ul {
-  margin-bottom: 15px;
-}
+   margin-top: 0;
+   margin-bottom: 20px;
 
 li {
   margin-bottom: 5px;
@@ -45,8 +44,9 @@ strong {
   margin-bottom: 30px;
 }
 
-.logo-container {
+.logo-container {	
   text-align: center;
+   margin-bottom: 20px;
 }
 
 .rounded-logo {
