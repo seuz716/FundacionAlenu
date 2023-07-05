@@ -44,6 +44,7 @@ strong {
 .row {
   margin-bottom: 30px;
 }
+
 .logo-container {
   text-align: center;
 }
@@ -70,3 +71,25 @@ strong {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Estilos adicionales para mejorar la experiencia visual */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+p {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
