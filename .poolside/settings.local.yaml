@@ -1,0 +1,9 @@
+tools:
+    shell:
+        allow:
+            - rm *
+            - wc *
+            - ls *
+            - cd *
+            - npx css-validator *
+            - echo *
