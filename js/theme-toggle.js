@@ -65,9 +65,7 @@
   };
 
   // Inicializar todo
-  document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    setupToggle();
-    watchSystemPreference();
-  });
+  initTheme();
+  setupToggle();
+  watchSystemPreference();
 })();

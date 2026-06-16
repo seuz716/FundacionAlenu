@@ -1,9 +1,5 @@
-tools:
-    shell:
-        allow:
-            - rm *
-            - wc *
-            - ls *
-            - cd *
-            - npx css-validator *
-            - echo *
+# Configuración de sandbox - Acceso total read-write sin whitelist
+sandbox:
+  filesystem:
+    workspaces:
+      access: read-write

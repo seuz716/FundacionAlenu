@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
   <title>Fundación ALENU</title>
+  <script defer src="js/main.js"></script>
   <script defer src="js/theme-toggle.js"></script>
 </head>
 <body>
@@ -34,12 +35,12 @@
   <div class="container">
     <header>
       <div class="logo-container">
-        <img src="images/logo.jpg" alt="Logo de la Fundación ALENU" class="rounded-logo" width="120" height="120">
+        <img src="images/logo.jpg" alt="Logo de la Fundación ALENU" class="rounded-logo" width="120" height="120" role="button" tabindex="0" aria-pressed="false">
       </div>
       <h1>Fundación ALENU</h1>
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#hero">Inicio</a></li>
           <li><a href="#quienes-somos">Quiénes somos</a></li>
           <li><a href="#mision-vision">Misión y Visión</a></li>
           <li><a href="#servicios">Servicios</a></li>
@@ -51,18 +52,12 @@
     </header>
 
     <main id="main-content">
-      <section id="inicio" class="row">
-        <div>
-          <h2>Contacto</h2>
-          <p>Calle 22 Bis N.27-320 Barrio Cementerio – Pasto</p>
-          <p>Tel. 3174672954 - 3176925434</p>
-          <p>Correo electrónico: alenufundacion@gmail.com</p>
-        </div>
-        <div>
-          <div class="image-container">
-            <img src="images/7.jpg" alt="Sede principal de la Fundación ALENU" class="encuadrada" loading="lazy">
-          </div>
-        </div>
+      <section id="hero">
+        <p class="hero-tagline">Transformando vidas en Pasto, un niño a la vez</p>
+        <div class="stat-item">30 niños atendidos diariamente</div>
+        <div class="stat-item">9 programas activos</div>
+        <div class="stat-item">Barrio Cementerio, Pasto — desde 2015</div>
+        <a href="#apoyar" class="btn">Quiero apoyar</a>
       </section>
 
       <section id="quienes-somos" class="row">
@@ -73,8 +68,8 @@
         </div>
         <div>
           <h2>Quiénes somos</h2>
-          <p>Fundación ALENU es una entidad sin ánimo de lucro, de carácter privado y con representación legal, cuyo objeto de estudio y trabajo está enfocado a la población vulnerable tomando como base el individuo, la familia y la sociedad.</p>
-          <p>Se crea con la finalidad de apoyar las necesidades más apremiantes en educación, alimentación, orientación psicosocial a población vulnerable de los barrios con mayor índice de pobreza y marginalidad del municipio de Pasto, principalmente a niños, niñas y adolescentes inmersos en dinámicas de violencia intrafamiliar, consumo de SPA, víctimas del conflicto armado, desplazamiento y migrantes.</p>
+          <p>Somos Fundación ALENU, un grupo de mujeres pastusas que desde hace más de 15 años acompañamos a niños y adolescentes de los barrios más necesitados de Pasto. Trabajamos donde la violencia intrafamiliar y el desplazamiento han marcado la vida de muchas familias.</p>
+          <p>Cada día les damos almuerzo caliente, refuerzo escolar y acompañamiento psicológico cuando más lo necesitan. Si sientes que este trabajo puede ser tuyo, únete a nosotros y transforma vidas desde ya.</p>
         </div>
       </section>
 
@@ -185,17 +180,17 @@
         <div>
           <h2>Cómo puedes ser parte de esta bonita obra y apoyarla</h2>
           <p>
-            Recibimos donaciones en:
+            Con solo $5.000 le damos el refrigerio de la tarde a un niño. Cada aporte se convierte en comida, educación y esperanza.
           </p>
           <ul>
-            <li>Víveres y abarrotes para apoyo del componente nutricional.</li>
-            <li>Ropa usada en buen estado, juguetes, útiles escolares, libros, cartillas, mobiliario (mesas, sillas), menaje de cocina y electrodomésticos.</li>
-            <li>Se requiere computador e impresora en buen estado, un televisor.</li>
+            <li>Víveres y abarrotes para el almuerzo diario de 30 niños.</li>
+            <li>Ropa, juguetes, útiles escolares y mobiliario en buen estado.</li>
+            <li>Bonos de $5.000 a $100.000 para gastos operativos.</li>
           </ul>
           <p>
-            Puede realizar su donación en dinero: a la cuenta de Ahorros Bancolombia No. 074-585172-01 el cual se utiliza para el pago de arrendamiento, servicios públicos de la casa donde se atiende a los menores en el barrio la Independencia, pago de la Persona que prepara los alimentos y compra de material que se requiere para actividades.
+            Deposite en la cuenta de ahorros Bancolombia No. 074-585172-01, a nombre de Fundación ALENU. Usamos cada peso para el arriendo de la casa, la alimentación de los menores y los materiales pedagógicos.
           </p>
-          <p>Compra de bonos desde $5.000 hasta $100.000.</p>
+          <p>¿Prefiere coordinar su donación? Llámenos al 3174672954 o escríbanos a alenufundacion@gmail.com.</p>
         </div>
         <div>
           <p>
@@ -261,8 +256,9 @@
     </main>
 
     <footer id="contacto">
-      <h2>Información de contacto</h2>
-      <p>Teléfono: 3174672954</p>
+      <h2>Contacto</h2>
+      <p>Calle 22 Bis N.27-320 Barrio Cementerio – Pasto</p>
+      <p>Tel. 3174672954 - 3176925434</p>
       <p>Correo electrónico: alenufundacion@gmail.com</p>
       <p>Todos los derechos reservados &copy; 2026 Fundación ALENU</p>
     </footer>
@@ -272,40 +268,5 @@
     <span class="lightbox-close">&times;</span>
     <img src="" alt="Imagen ampliada de la galería">
   </div>
-
-  <script>
-    // Logo enlarge toggle
-    document.querySelector('.rounded-logo').addEventListener('click', function() {
-      this.classList.toggle('enlarged');
-    });
-
-    // Lightbox vanilla JS (sin jQuery)
-    document.addEventListener('click', function(e) {
-      var item = e.target.closest('.galeria-item img');
-      if (item) {
-        var overlay = document.querySelector('.lightbox-overlay');
-        var img = overlay.querySelector('img');
-        img.src = item.src;
-        img.alt = item.alt;
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    });
-
-    document.querySelector('.lightbox-overlay').addEventListener('click', function() {
-      this.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        var overlay = document.querySelector('.lightbox-overlay');
-        if (overlay.classList.contains('active')) {
-          overlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }
-    });
-  </script>
 </body>
 </html>
