@@ -361,7 +361,8 @@ img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   width: 100%;
-  height: var(--height-card);
+  height: auto;
+  max-height: 420px;
   object-fit: cover;
   object-position: center;
   transition: transform var(--duration-base) var(--ease-out),
@@ -375,9 +376,17 @@ img {
   border-color: var(--accent);
 }
 
-.encuadrada--natural {
-  height: auto;
-  max-height: none;
+.encuadrada--panoramica {
+  max-height: 280px;
+}
+
+.encuadrada--vertical {
+  max-height: 500px;
+  object-position: center top;
+}
+
+.encuadrada--cuadrada {
+  max-height: 400px;
 }
 
 /* Logo redondo - clickeable */
@@ -488,6 +497,7 @@ nav a:focus-visible {
 .row {
   display: grid;
   gap: var(--space-8);
+  align-items: start;
 }
 
 @media (min-width: 768px) {
@@ -500,12 +510,26 @@ nav a:focus-visible {
     grid-column: span 6;
   }
 
-  .row:has(> div:nth-child(3)) > div {
+  /* Sección mision-vision y objetivos: 3 divs, span 4 cada uno */
+  #mision-vision > div,
+  #objetivos > div {
     grid-column: span 4;
   }
 
-  #mision-vision > div,
-  #objetivos > div {
+  /* Override: secciones con 2 columnas (imagen + texto) usar 5/7 */
+  #quienes-somos > div:first-child,
+  #principios > div:first-child,
+  #servicios > div:first-child {
+    grid-column: span 5;
+  }
+  #quienes-somos > div:last-child,
+  #principios > div:last-child,
+  #servicios > div:last-child {
+    grid-column: span 7;
+  }
+
+  /* Sección apoyar: 3 columnas, distribución 4/4/4 */
+  #apoyar > div {
     grid-column: span 4;
   }
 
@@ -559,6 +583,8 @@ nav a:focus-visible {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   transition: border-color var(--duration-fast) var(--ease-out);
+  /* Override para que galería no herede max-height de .encuadrada */
+  max-height: none;
 }
 
 .galeria-item:hover img {
