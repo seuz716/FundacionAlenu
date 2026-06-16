@@ -281,6 +281,11 @@ img {
   border-color: var(--accent);
 }
 
+.encuadrada--natural {
+  height: auto;
+  max-height: none;
+}
+
 /* Logo redondo - clickeable */
 .rounded-logo {
   border-radius: var(--radius-full);
