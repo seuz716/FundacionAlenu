@@ -1,11 +1,3 @@
-/**
- * Fundación ALENU - Main Script
- * Logo toggle, Lightbox, Gallery staggered animation
- */
-
-/**
- * Logo enlarge toggle with keyboard accessibility
- */
 const setupLogoToggle = () => {
   const logo = document.querySelector('.rounded-logo');
   if (!logo) return;
@@ -26,54 +18,104 @@ const setupLogoToggle = () => {
   });
 };
 
-/**
- * Lightbox vanilla JS (sin jQuery)
- */
 const setupLightbox = () => {
   const overlay = document.querySelector('.lightbox-overlay');
   if (!overlay) return;
 
-  // Click on gallery item to open
-  document.addEventListener('click', function(e) {
-    var item = e.target.closest('.galeria-item img');
-    if (item) {
-      var img = overlay.querySelector('img');
-      img.src = item.src;
-      img.alt = item.alt;
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  });
-
-  // Click on overlay to close
-  overlay.addEventListener('click', function() {
-    this.classList.remove('active');
+  const closeLightbox = () => {
+    overlay.classList.remove('active');
     document.body.style.overflow = '';
+    const lastFocused = overlay._lastFocused;
+    if (lastFocused) lastFocused.focus();
+  };
+
+  const trapFocus = (e) => {
+    const focusable = overlay.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+  };
+
+  document.addEventListener('click', function(e) {
+    const item = e.target.closest('.galeria-item img');
+    if (!item || !overlay) return;
+    const img = overlay.querySelector('img');
+    if (!img) return;
+    img.src = item.src;
+    img.alt = item.alt;
+    overlay._lastFocused = document.activeElement;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    const closeBtn = overlay.querySelector('.lightbox-close');
+    if (closeBtn) closeBtn.focus();
   });
 
-  // Escape key to close
+  overlay.addEventListener('click', closeLightbox);
+
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      if (overlay.classList.contains('active')) {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeLightbox();
+    }
+    if (e.key === 'Tab' && overlay.classList.contains('active')) {
+      trapFocus(e);
     }
   });
 };
 
-/**
- * Gallery staggered animation
- */
 const setupGalleryAnimation = () => {
   const items = document.querySelectorAll('.galeria-item');
+  if (!items.length) return;
   items.forEach((item, index) => {
     const delay = Math.min(index * 40, 800);
     item.style.animationDelay = delay + 'ms';
   });
 };
 
-// Initialize (defer ensures DOM is ready)
-setupLogoToggle();
-setupLightbox();
-setupGalleryAnimation();
+const setupNavToggle = () => {
+  const btn = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('nav');
+  if (!btn || !nav) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !btn.contains(e.target)) {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menú');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menú');
+      btn.focus();
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupLogoToggle();
+  setupLightbox();
+  setupGalleryAnimation();
+  setupNavToggle();
+});

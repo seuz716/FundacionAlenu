@@ -1,70 +1,64 @@
-/**
- * Fundación ALENU - Theme Toggle
- * Vanilla JS - Sin dependencias
- */
-
-(() => {
+(function() {
   'use strict';
 
-  // Constantes
   const THEME_KEY = 'theme-preference';
   const DARK_CLASS = 'dark-theme';
+  const TOGGLE_ID = 'theme-toggle';
 
-  // Detectar preferencia guardada o del sistema
-  const getStoredTheme = () => localStorage.getItem(THEME_KEY);
-  const getSystemPreference = () => 
-    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const getStoredTheme = function() { return localStorage.getItem(THEME_KEY); };
+  const getSystemPreference = function() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
 
-  // Aplicar tema
-  const applyTheme = (theme) => {
+  var toggleBtn = null;
+
+  var updateToggleAria = function(theme) {
+    if (!toggleBtn) return;
+    var isDark = theme === 'dark';
+    toggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    toggleBtn.setAttribute('aria-label', isDark ? 'Desactivar modo oscuro' : 'Activar modo oscuro');
+  };
+
+  var applyTheme = function(theme) {
     document.documentElement.dataset.theme = theme;
     if (theme === 'dark') {
       document.body.classList.add(DARK_CLASS);
     } else {
       document.body.classList.remove(DARK_CLASS);
     }
+    updateToggleAria(theme);
   };
 
-  // Inicializar tema al cargar
-  const initTheme = () => {
-    const savedTheme = getStoredTheme();
-    const theme = savedTheme || getSystemPreference();
+  var initTheme = function() {
+    var savedTheme = getStoredTheme();
+    var theme = savedTheme || getSystemPreference();
     applyTheme(theme);
   };
 
-  // Toggle manual
-  const setupToggle = () => {
-    const toggleBtn = document.getElementById('theme-toggle');
-    
+  var setupToggle = function() {
+    toggleBtn = document.getElementById(TOGGLE_ID);
     if (!toggleBtn) return;
 
-    toggleBtn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.dataset.theme;
-      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
+    toggleBtn.addEventListener('click', function() {
+      var currentTheme = document.documentElement.dataset.theme;
+      var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme);
       localStorage.setItem(THEME_KEY, nextTheme);
-      
-      // Actualizar atributo aria-pressed para accesibilidad
-      toggleBtn.setAttribute('aria-pressed', nextTheme === 'dark');
     });
 
-    // Estado inicial del botón
-    const initialTheme = getStoredTheme() || getSystemPreference();
-    toggleBtn.setAttribute('aria-pressed', initialTheme === 'dark' ? 'true' : 'false');
+    var initialTheme = getStoredTheme() || getSystemPreference();
+    updateToggleAria(initialTheme);
   };
 
-  // Escuchar cambios en la preferencia del sistema (solo si no hay guardado)
-  const watchSystemPreference = () => {
+  var watchSystemPreference = function() {
     window.matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (e) => {
+      .addEventListener('change', function(e) {
         if (!getStoredTheme()) {
           applyTheme(e.matches ? 'dark' : 'light');
         }
       });
   };
 
-  // Inicializar todo
   initTheme();
   setupToggle();
   watchSystemPreference();
