@@ -1,5 +1,0 @@
-# Configuración de sandbox - Acceso total read-write sin whitelist
-sandbox:
-  filesystem:
-    workspaces:
-      access: read-write
