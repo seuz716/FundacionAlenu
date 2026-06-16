@@ -113,9 +113,31 @@ const setupNavToggle = () => {
   });
 };
 
+/**
+ * Intersection Observer for scroll animations
+ */
+const setupIntersectionObserver = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // Observe animate-on-scroll elements
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   setupLogoToggle();
   setupLightbox();
   setupGalleryAnimation();
   setupNavToggle();
+  setupIntersectionObserver();
 });
