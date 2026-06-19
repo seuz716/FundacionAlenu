@@ -773,6 +773,32 @@ nav a:focus-visible {
     bottom: var(--space-4);
     right: var(--space-4);
   }
+
+  .encuadrada {
+    max-height: none;
+    object-fit: none;
+  }
+
+  .encuadrada--panoramica {
+    max-height: none;
+  }
+
+  .encuadrada--vertical {
+    max-height: none;
+    object-position: center;
+  }
+
+  .row {
+    gap: var(--space-6);
+  }
+
+  main > section:nth-of-type(even) {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  main > section:nth-of-type(odd) {
+    padding-block: var(--space-12);
+  }
 }
 
 /* -----------------------------------
