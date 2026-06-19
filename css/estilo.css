@@ -1347,6 +1347,32 @@ footer .footer-inner {
   font-size: var(--text-base);
 }
 
+.btn-copy {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.btn-copy:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-copy.copied {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
 .footer-copy {
   margin-top: var(--space-8);
   font-size: var(--text-xs);

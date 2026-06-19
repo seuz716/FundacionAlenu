@@ -187,6 +187,26 @@ const setupFAB = () => {
   toggleFab();
 };
 
+const setupCopyButtons = () => {
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy');
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = btn.textContent;
+        btn.textContent = '¡Copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      } catch {
+        btn.textContent = 'Error al copiar';
+      }
+    });
+  });
+};
+
 /**
  * Intersection Observer for scroll animations
  */
@@ -214,5 +234,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCarousels();
   setupNavToggle();
   setupFAB();
+  setupCopyButtons();
   setupIntersectionObserver();
 });
