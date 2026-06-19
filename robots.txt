@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fundacion-alenu.vercel.app/sitemap.xml

@@ -171,6 +171,22 @@ const setupNavToggle = () => {
   });
 };
 
+const setupFAB = () => {
+  const fab = document.querySelector('.fab-bar');
+  if (!fab) return;
+
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  const toggleFab = () => {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    fab.classList.toggle('visible', heroBottom < 0);
+  };
+
+  window.addEventListener('scroll', toggleFab, { passive: true });
+  toggleFab();
+};
+
 /**
  * Intersection Observer for scroll animations
  */
@@ -197,5 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupLightbox();
   setupCarousels();
   setupNavToggle();
+  setupFAB();
   setupIntersectionObserver();
 });

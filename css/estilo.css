@@ -934,6 +934,51 @@ nav a:focus-visible {
 }
 
 /* -----------------------------------
+    TRANSPARENCIA / IMPACTO
+    ----------------------------------- */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.impact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: transform var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.impact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.impact-number {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.impact-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* -----------------------------------
     FOOTER — Divisor geométrico
     ----------------------------------- */
 footer {
@@ -992,8 +1037,211 @@ footer .footer-inner {
 }
 
 /* -----------------------------------
-   ACCESIBILIDAD - Focus visible
-   ----------------------------------- */
+    FLOATING ACTION BUTTONS (CTA + WhatsApp)
+    ----------------------------------- */
+.fab-bar {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.fab-bar.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.fab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+  position: relative;
+}
+
+.fab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+.fab-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.fab-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.fab-btn--whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.fab-btn--whatsapp:hover {
+  background: #20bd5a;
+}
+
+.fab-btn--donate {
+  background: var(--accent);
+  color: white;
+}
+
+.fab-btn--donate:hover {
+  background: var(--accent-hover);
+}
+
+.fab-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: var(--surface);
+  color: var(--text);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+  pointer-events: none;
+}
+
+.fab-btn:hover .fab-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 767px) {
+  .fab-bar {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    gap: var(--space-2);
+    flex-direction: row-reverse;
+  }
+
+  .fab-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .fab-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .fab-label {
+    display: none;
+  }
+}
+
+/* -----------------------------------
+    CONTACT CARDS
+    ----------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card svg {
+  color: var(--accent);
+}
+
+.contact-card strong {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-card span {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.contact-card--location {
+  cursor: default;
+}
+
+.contact-card--location:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.footer-bank {
+  text-align: center;
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  background: var(--accent-subtle);
+  border-radius: var(--radius-md);
+}
+
+.footer-bank p {
+  text-align: center;
+  margin-bottom: var(--space-1);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.footer-bank strong {
+  font-size: var(--text-base);
+}
+
+.footer-copy {
+  margin-top: var(--space-8);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  text-align: center;
+}
+
+/* -----------------------------------
+    ACCESIBILIDAD - Focus visible
+    ----------------------------------- */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
