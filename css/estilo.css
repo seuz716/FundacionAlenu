@@ -347,6 +347,35 @@ section:nth-of-type(odd)::before {
   padding: var(--space-4);
 }
 
+.sponsor-callout {
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+  background: linear-gradient(135deg, var(--accent-subtle) 0%, var(--secondary-subtle) 100%);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  font-family: var(--font-display);
+}
+
+.sponsor-callout p {
+  text-align: center;
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  margin-bottom: 0;
+  font-family: var(--font-display);
+}
+
+.sponsor-callout strong {
+  color: var(--accent);
+  font-size: var(--text-xl);
+}
+
+.sponsor-callout em {
+  color: var(--secondary);
+  font-style: italic;
+  font-size: var(--text-base);
+}
+
 /* -----------------------------------
    IMÁGENES - Estándar consistente
    ----------------------------------- */
