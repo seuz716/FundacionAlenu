@@ -50,7 +50,7 @@ const setupLightbox = () => {
   };
 
   document.addEventListener('click', function(e) {
-    const item = e.target.closest('.galeria-item img');
+    const item = e.target.closest('.carousel-item img');
     if (!item || !overlay) return;
     const img = overlay.querySelector('img');
     if (!img) return;
@@ -75,12 +75,70 @@ const setupLightbox = () => {
   });
 };
 
-const setupGalleryAnimation = () => {
-  const items = document.querySelectorAll('.galeria-item');
-  if (!items.length) return;
-  items.forEach((item, index) => {
-    const delay = Math.min(index * 40, 800);
-    item.style.animationDelay = delay + 'ms';
+const setupCarousels = () => {
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('[data-carousel-track]');
+    const prevBtn = carousel.querySelector('[data-carousel-prev]');
+    const nextBtn = carousel.querySelector('[data-carousel-next]');
+    const dotsContainer = carousel.parentElement.querySelector('[data-carousel-dots]');
+    if (!track) return;
+
+    const items = track.querySelectorAll('.carousel-item');
+    if (items.length <= 1) {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      return;
+    }
+
+    const getItemWidth = () => items[0].offsetWidth + parseFloat(getComputedStyle(track).gap) || items[0].offsetWidth + 16;
+
+    const updateDots = () => {
+      const scrollLeft = track.scrollLeft;
+      const itemWidth = getItemWidth();
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      let activeIndex;
+
+      if (track.scrollLeft >= maxScroll - 1) {
+        activeIndex = items.length - 1;
+      } else {
+        activeIndex = Math.round(scrollLeft / itemWidth);
+      }
+
+      const dots = dotsContainer?.querySelectorAll('.carousel-dot');
+      dots?.forEach((d, i) => d.classList.toggle('active', i === Math.min(activeIndex, items.length - 1)));
+    };
+
+    if (dotsContainer) {
+      items.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', `Ir a imagen ${i + 1}`);
+        dot.addEventListener('click', () => {
+          items[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    track.addEventListener('scroll', updateDots);
+
+    prevBtn?.addEventListener('click', () => {
+      const itemWidth = getItemWidth();
+      track.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const itemWidth = getItemWidth();
+      track.scrollBy({ left: itemWidth, behavior: 'smooth' });
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateDots, 100);
+    });
+
+    setTimeout(updateDots, 150);
   });
 };
 
@@ -137,7 +195,7 @@ const setupIntersectionObserver = () => {
 document.addEventListener('DOMContentLoaded', () => {
   setupLogoToggle();
   setupLightbox();
-  setupGalleryAnimation();
+  setupCarousels();
   setupNavToggle();
   setupIntersectionObserver();
 });
