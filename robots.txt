@@ -2,3 +2,13 @@ User-agent: *
 Allow: /
 
 Sitemap: https://fundacion-alenu.vercel.app/sitemap.xml
+
+# Additional directives for major crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /images/
