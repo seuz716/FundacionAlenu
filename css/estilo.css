@@ -572,14 +572,21 @@ nav a:focus-visible {
 }
 
 .carousel-title {
-  font-size: var(--text-lg);
-  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-family: var(--font-display);
   font-weight: 700;
   color: var(--text);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-1);
   display: flex;
   align-items: center;
   gap: var(--space-2);
+}
+
+.carousel-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-ui);
 }
 
 .carousel {
@@ -982,7 +989,7 @@ a:hover {
     --text-muted: var(--text);
   }
 
-  .card, .encuadrada, .galeria-item img {
+  .card, .encuadrada, .carousel-item img {
     border-width: 2px;
   }
 
