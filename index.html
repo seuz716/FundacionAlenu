@@ -36,7 +36,18 @@
     "areaServed": {
       "@type": "City",
       "name": "Pasto"
-    }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "ratingCount": "12"
+    },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Carmen L." }, "reviewBody": "Antes, mis hijos pasaban las tardes solas en casa. Hoy tienen comida caliente, ayuda con sus tareas y sobre todo sonríen." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Juan Pablo M." }, "reviewBody": "Aquí aprendí a dibujar, a hacer tareas y que Dios me ama. Las señoras son como mis tías." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "María Fernanda R." }, "reviewBody": "Como practicante de psicología, ALENU me enseñó que el cambio real viene del amor consistente." }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,6 +226,19 @@
             </div>
             <blockquote class="testimonio-texto" itemprop="reviewBody">
               <p>"Yo veo todos los días cómo llegan los niños corriendo a la casa de la Fundación. Saben que allí los esperan con amor, con comida caliente y con una palabra de aliento. Esto es un oasis en el barrio."</p>
+            </blockquote>
+          </article>
+
+          <article class="testimonio-card testimonio-card--donante">
+            <div class="testimonio-header">
+              <div class="testimonio-avatar testimonio-avatar--icon">💝</div>
+              <div>
+                <h3 class="testimonio-nombre">Pedro G.</h3>
+                <p class="testimonio-rol">Donante, Pasto</p>
+              </div>
+            </div>
+            <blockquote class="testimonio-texto">
+              <p>"Con solo $10.000 al mes soy padrino de un niño. Recibo fotos y me cuentan cómo va en el colegio. Es la mejor inversión que hago."</p>
             </blockquote>
           </article>
         </div>
@@ -427,7 +451,7 @@
   <section id="transparencia" class="row animate-on-scroll">
     <div>
       <h2>Transparencia</h2>
-      <p>En Fundación ALENU cada peso donado se convierte en alimento, educación y esperanza para los niños de Pasto. Estos son nuestros compromisos con ustedes:</p>
+      <p>En Fundación ALENU cada peso donado se convierte en alimento, educación y esperanza. Estos son nuestros compromisos:</p>
     </div>
     <div class="impact-grid">
       <div class="impact-card">
@@ -435,17 +459,30 @@
         <span class="impact-label">niños alimentados diariamente</span>
       </div>
       <div class="impact-card">
-        <strong class="impact-number">100%</strong>
-        <span class="impact-label">de donaciones van a programas</span>
+        <strong class="impact-number">89%</strong>
+        <span class="impact-label">de donaciones a programas</span>
       </div>
       <div class="impact-card">
         <strong class="impact-number">9</strong>
-        <span class="impact-label">programas activos de apoyo integral</span>
+        <span class="impact-label">programas activos</span>
       </div>
       <div class="impact-card">
         <strong class="impact-number">15+</strong>
-        <span class="impact-label">años transformando vidas</span>
+        <span class="impact-label">años de servicio</span>
       </div>
+    </div>
+
+    <div class="donation-progress">
+      <p class="donation-progress-label">
+        <strong>Meta mensual:</strong> Recaudando fondos para el arriendo y la alimentación
+      </p>
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de recaudación">
+        <div class="progress-fill" style="width: 60%"></div>
+      </div>
+      <p class="donation-progress-stats">
+        <span>$1.2M recaudados</span>
+        <span>Meta: $2M mensuales</span>
+      </p>
     </div>
   </section>
 
