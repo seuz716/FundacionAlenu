@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://fundacion-alenu.vercel.app/">
   <link rel="icon" href="images/logo.jpg" type="image/jpeg">
   <link rel="stylesheet" href="css/estilo.css">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; form-action https://formspree.io;">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <script type="application/ld+json">
   {
@@ -474,6 +474,24 @@
           <span>Calle 22 Bis N.27-320, Barrio Cementerio, Pasto</span>
         </div>
       </div>
+
+      <form class="contact-form" action="https://formspree.io/f/mgobgpvv" method="POST">
+        <h3>Envíanos un mensaje</h3>
+        <div class="form-group">
+          <label for="form-nombre">Nombre</label>
+          <input type="text" id="form-nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="form-email">Correo electrónico</label>
+          <input type="email" id="form-email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="form-mensaje">Mensaje</label>
+          <textarea id="form-mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Enviar mensaje</button>
+      </form>
+
       <div class="footer-bank">
         <p><strong>💳 Bancolombia</strong> Cuenta de Ahorros No. 074-585172-01</p>
         <p>Fundación ALENU — NIT en trámite</p>
