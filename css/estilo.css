@@ -1522,6 +1522,48 @@ a:hover {
 }
 
 /* -----------------------------------
+   MODO ECONÓMICO - Dispositivos gama baja / 3G
+   ----------------------------------- */
+@media (hover: none) and (max-width: 767px) {
+  body {
+    background-image: none !important;
+  }
+
+  .geo-ring, .geo-ring-2,
+  section::before, section::after,
+  #hero::after,
+  .sponsor-callout {
+    display: none;
+  }
+
+  .carousel-item {
+    width: 75vw;
+  }
+
+  .carousel-item img {
+    height: clamp(160px, 45vw, 220px);
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .rounded-logo {
+    cursor: default;
+  }
+
+  .rounded-logo.enlarged {
+    width: var(--size-logo);
+    height: var(--size-logo);
+  }
+
+  .stat-item {
+    min-width: 140px;
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
+/* -----------------------------------
    REDUCIR MOVIMIENTO - WCAG
    ----------------------------------- */
 @media (prefers-reduced-motion: reduce) {
