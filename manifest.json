@@ -1,0 +1,16 @@
+{
+  "name": "Fundación ALENU",
+  "short_name": "ALENU",
+  "description": "Apoyo integral a niños vulnerables en Pasto, Nariño. Educación, alimentación y acompañamiento psicosocial.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f6f2",
+  "theme_color": "#ff6f00",
+  "icons": [
+    {
+      "src": "images/logo.webp",
+      "sizes": "305x245",
+      "type": "image/webp"
+    }
+  ]
+}
