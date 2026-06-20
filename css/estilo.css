@@ -569,7 +569,7 @@ img {
   flex: 0 0 auto;
   width: clamp(200px, 28vw, 280px);
   scroll-snap-align: start;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   cursor: pointer;
   transition: transform var(--duration-base) var(--ease-out),
