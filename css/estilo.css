@@ -1338,9 +1338,9 @@ a:hover {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0,0,0,0.55) 0%,
-    rgba(0,0,0,0.40) 40%,
-    rgba(0,0,0,0.60) 100%
+    rgba(0,0,0,0.60) 0%,
+    rgba(0,0,0,0.45) 35%,
+    rgba(0,0,0,0.65) 100%
   );
 }
 
@@ -1471,6 +1471,16 @@ a:hover {
 
 .hero-cta:hover .hero-cta-arrow {
   transform: translateX(4px);
+}
+
+.hero-meta {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  margin-top: var(--space-3);
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 767px) {
@@ -2019,6 +2029,10 @@ nav a:focus-visible {
   .stat-item {
     min-width: 140px;
     padding: var(--space-3) var(--space-4);
+  }
+
+  .hero-meta {
+    color: var(--text-muted);
   }
 }
 
