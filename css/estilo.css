@@ -971,52 +971,27 @@ footer .footer-inner {
 }
 
 /* -----------------------------------
-    CONTACT FORM — cálido, infantil, motivante
+    CONTACT FORM
     ----------------------------------- */
 .contact-form {
   max-width: 500px;
   margin: var(--space-10) auto;
   background: var(--surface);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border);
   overflow: hidden;
-  position: relative;
-}
-
-.contact-form::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--secondary), var(--accent));
 }
 
 .form-header {
   text-align: center;
-  padding: var(--space-8) var(--space-6) var(--space-4);
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(var(--accent-rgb), 0.04), transparent);
-}
-
-.form-icon {
-  display: block;
-  font-size: 2.5rem;
-  margin-bottom: var(--space-2);
-  animation: float 3s var(--ease-in-out) infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  padding: var(--space-6) var(--space-6) var(--space-2);
 }
 
 .form-header h3 {
-  margin: 0 0 var(--space-2);
-  font-size: var(--text-2xl);
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-xl);
   font-family: var(--font-display);
-  color: var(--accent);
+  color: var(--text);
 }
 
 .form-header p {
@@ -1032,98 +1007,91 @@ footer .footer-inner {
 }
 
 .form-group {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 .form-group label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   font-family: var(--font-ui);
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--text);
-  margin-bottom: var(--space-2);
-  letter-spacing: 0.02em;
+  margin-bottom: var(--space-1);
+}
+
+.form-group label svg {
+  stroke: var(--text-muted);
+  flex-shrink: 0;
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
   padding: var(--space-3) var(--space-4);
   font-family: var(--font-body);
   font-size: var(--text-base);
   color: var(--text);
   background: var(--bg);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
   transition: border-color var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out),
-              background var(--duration-fast) var(--ease-out);
+              box-shadow var(--duration-fast) var(--ease-out);
+  appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a827a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: var(--text-faint);
-  font-style: italic;
   font-size: var(--text-sm);
 }
 
-.form-group input:hover,
-.form-group textarea:hover {
-  border-color: var(--text-muted);
-  background: var(--surface);
-}
-
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
   outline: none;
   border-color: var(--accent);
-  background: var(--surface);
-  box-shadow: 0 0 0 4px var(--accent-subtle);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
 }
 
 .form-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
   width: 100%;
-  padding: var(--space-4) var(--space-6);
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  padding: var(--space-3) var(--space-6);
+  background: var(--accent);
   color: white;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   font-family: var(--font-ui);
   font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
   transition: transform var(--duration-fast) var(--ease-out),
               box-shadow var(--duration-fast) var(--ease-out);
-  box-shadow: 0 4px 14px rgba(var(--accent-rgb), 0.35);
   margin-top: var(--space-2);
 }
 
 .form-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.45);
+  box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.35);
 }
 
 .form-btn:active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.97);
 }
 
 .form-btn:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 2px;
-}
-
-.form-btn-arrow {
-  width: 20px;
-  height: 20px;
-  transition: transform var(--duration-fast) var(--ease-out);
-}
-
-.form-btn:hover .form-btn-arrow {
-  transform: translateX(4px);
 }
 
 @media (max-width: 767px) {
@@ -1133,11 +1101,11 @@ footer .footer-inner {
   }
 
   .form-header {
-    padding: var(--space-6) var(--space-4) var(--space-3);
+    padding: var(--space-5) var(--space-4) var(--space-2);
   }
 
   .form-body {
-    padding: 0 var(--space-4) var(--space-4);
+    padding: 0 var(--space-4) var(--space-5);
   }
 }
 
@@ -1513,65 +1481,208 @@ a:hover {
 }
 
 /* -----------------------------------
-   REDISEÑO 2026 — SPONSOR CALLOUT
+   REDISEÑO 2026 — CÓMO APOYAR (3 TARJETAS)
    ----------------------------------- */
-.sponsor-callout {
-  margin-top: var(--space-8);
-  padding: var(--space-8);
-  background: linear-gradient(135deg, var(--accent-subtle), var(--secondary-subtle));
+#apoyar {
+  padding: var(--space-16) var(--space-4);
+  max-width: min(90%, 1200px);
+  margin-inline: auto;
+}
+
+.apoyar-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.apoyar-header h2 {
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.apoyar-header h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.apoyar-header p {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.apoyar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.apoyar-card {
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8) var(--space-6);
   text-align: center;
   position: relative;
-  overflow: hidden;
+  transition: transform var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
 }
 
-.sponsor-callout::before {
-  content: '';
+.apoyar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.apoyar-card--featured {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), var(--shadow-md);
+}
+
+.apoyar-badge {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--secondary));
-}
-
-.sponsor-callout p {
-  text-align: center;
-  font-size: var(--text-base);
-  line-height: 1.7;
-  margin-bottom: var(--space-3);
-  font-family: var(--font-body);
-}
-
-.sponsor-callout p:last-child {
-  margin-bottom: 0;
-}
-
-.sponsor-callout strong {
-  color: var(--accent);
-  font-size: var(--text-xl);
-  font-family: var(--font-display);
-}
-
-.sponsor-callout .sponsor-cta {
-  display: inline-block;
-  margin-top: var(--space-4);
-  padding: var(--space-3) var(--space-6);
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--accent);
   color: #fff;
-  border-radius: var(--radius-full);
-  text-decoration: none;
   font-family: var(--font-ui);
+  font-size: var(--text-xs);
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+}
+
+.apoyar-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-3);
+  line-height: 1;
+}
+
+.apoyar-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--text);
+  margin-bottom: var(--space-2);
+}
+
+.apoyar-amount {
+  font-family: var(--font-ui);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+  text-align: center;
+}
+
+.apoyar-desc {
   font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-5);
+  text-align: center;
+}
+
+.apoyar-bank {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.apoyar-bank strong {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--text);
+  margin-bottom: var(--space-1);
+}
+
+.apoyar-bank span {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  word-break: break-all;
+}
+
+.apoyar-copy {
+  width: 100%;
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-full);
+  color: var(--accent);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.apoyar-copy:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.apoyar-copy.copied {
+  background: #22c55e;
+  color: #fff;
+  border-color: #22c55e;
+}
+
+.apoyar-btn {
+  display: block;
+  width: 100%;
+  padding: var(--space-3);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
   transition: background var(--duration-fast) var(--ease-out),
               transform var(--duration-fast) var(--ease-out);
 }
 
-.sponsor-callout .sponsor-cta:hover {
+.apoyar-btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
+}
+
+.apoyar-btn--outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.apoyar-btn--outline:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  #apoyar {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .apoyar-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .apoyar-grid {
+    gap: var(--space-4);
+  }
+
+  .apoyar-card {
+    padding: var(--space-6) var(--space-4);
+  }
 }
 
 /* -----------------------------------

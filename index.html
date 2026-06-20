@@ -473,35 +473,37 @@
         </div>
       </section>
 
-      <section id="apoyar" class="row animate-on-scroll">
-        <div>
-          <div class="image-container">
-            <img src="images/5.webp" alt="Donación de víveres para el componente nutricional" class="encuadrada" width="577" height="431" loading="lazy">
-          </div>
+      <section id="apoyar" class="animate-on-scroll">
+        <div class="apoyar-header">
+          <h2>Formas de apoyar</h2>
+          <p>Cada grano de arena cuenta para transformar la vida de un niño en Pasto</p>
         </div>
-        <div>
-          <h2>Cómo puedes ser parte de esta bonita obra y apoyarla</h2>
-          <p>
-            Con solo $5.000 le damos el refrigerio de la tarde a un niño. Cada aporte se convierte en comida, educación y esperanza.
-          </p>
-          <ul>
-            <li>Víveres y abarrotes para el almuerzo diario de 30 niños.</li>
-            <li>Ropa, juguetes, útiles escolares y mobiliario en buen estado.</li>
-            <li>Bonos de $5.000 a $10.000 para gastos operativos.</li>
-          </ul>
-          <p>
-            Deposite en la cuenta de ahorros Bancolombia No. 074-585172-01, a nombre de Fundación ALENU. Usamos cada peso para el arriendo de la casa, la alimentación de los menores y los materiales pedagógicos.
-          </p>
-          <p>¿Prefiere coordinar su donación? Llámenos al 3174672954 o escríbanos a alenufundacion@gmail.com.</p>
-          <div class="sponsor-callout">
-            <p><strong>Sé padrino o madrina de un niño</strong></p>
-            <p>Con solo <strong>$10.000 mensuales</strong> transformas una vida. Recibirás fotos y noticias de su progreso.</p>
-            <a href="https://wa.me/573174672954?text=Quiero%20ser%20padrino%20de%20un%20ni%C3%B1o" class="sponsor-cta" target="_blank" rel="noopener">Quiero apadrinar</a>
+        <div class="apoyar-grid">
+          <div class="apoyar-card">
+            <div class="apoyar-icon">💰</div>
+            <h3>Donar una vez</h3>
+            <p class="apoyar-amount">Desde $5.000</p>
+            <p class="apoyar-desc">Un refrigerio, un almuerzo, útiles escolares. Cada peso llega directo a los niños.</p>
+            <div class="apoyar-bank">
+              <strong>Bancolombia</strong>
+              <span>Cuenta de Ahorros No. 074-585172-01</span>
+            </div>
+            <button class="apoyar-copy" data-copy="074-585172-01">Copiar número de cuenta</button>
           </div>
-        </div>
-        <div>
-          <div class="image-container">
-            <img src="images/8.webp" alt="Sede actual de la Fundación ALENU" class="encuadrada encuadrada--vertical" width="535" height="1000" loading="lazy">
+          <div class="apoyar-card apoyar-card--featured">
+            <div class="apoyar-badge">Recomendado</div>
+            <div class="apoyar-icon">👶</div>
+            <h3>Apadrinar un niño</h3>
+            <p class="apoyar-amount">$10.000 / mes</p>
+            <p class="apoyar-desc">Sé padrino o madrina. Recibirás fotos y noticias de su progreso en el colegio.</p>
+            <a href="https://wa.me/573174672954?text=Quiero%20ser%20padrino%20de%20un%20ni%C3%B1o" class="apoyar-btn" target="_blank" rel="noopener">Quiero apadrinar</a>
+          </div>
+          <div class="apoyar-card">
+            <div class="apoyar-icon">🤝</div>
+            <h3>Ser voluntario</h3>
+            <p class="apoyar-amount">Tiempo · Víveres · Conocimiento</p>
+            <p class="apoyar-desc">Donas ropa, juguetes, mercado, o tu tiempo como profesional. Toda ayuda suma.</p>
+            <a href="https://wa.me/573174672954?text=Quiero%20ser%20voluntario%20en%20Fundaci%C3%B3n%20ALENU" class="apoyar-btn apoyar-btn--outline" target="_blank" rel="noopener">Escribir por WhatsApp</a>
           </div>
         </div>
       </section>
@@ -715,27 +717,43 @@
 
       <form class="contact-form" action="https://formspree.io/f/mgobgpvv" method="POST">
         <div class="form-header">
-          <span class="form-icon">💌</span>
-          <h3>Quiero ayudar</h3>
-          <p>Cuéntanos cómo quieres sumarte y te escribiremos con amor</p>
+          <h3>¿Quieres ayudar?</h3>
+          <p>Cuéntanos cómo quieres sumarte y te escribiremos</p>
         </div>
         <div class="form-body">
           <div class="form-group">
-            <label for="form-nombre">Tu nombre</label>
+            <label for="form-nombre">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Tu nombre
+            </label>
             <input type="text" id="form-nombre" name="nombre" placeholder="ej. María Pérez" required>
           </div>
           <div class="form-group">
-            <label for="form-email">Tu correo</label>
+            <label for="form-email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+              Tu correo
+            </label>
             <input type="email" id="form-email" name="email" placeholder="ej. maria@correo.com" required>
           </div>
           <div class="form-group">
-            <label for="form-mensaje">Tu mensaje</label>
-            <textarea id="form-mensaje" name="mensaje" rows="3" placeholder="Quiero apadrinar un niño, donar víveres, ser voluntario..." required></textarea>
+            <label for="form-tipo">¿Cómo quieres ayudar?</label>
+            <select id="form-tipo" name="tipo">
+              <option value="">Selecciona una opción</option>
+              <option value="donar">Donar económicamente</option>
+              <option value="apadrinar">Apadrinar un niño</option>
+              <option value="voluntario">Ser voluntario</option>
+              <option value="viveres">Donar víveres/ropa</option>
+              <option value="otro">Otro</option>
+            </select>
           </div>
-          <button type="submit" class="form-btn">
-            <span class="form-btn-text">Enviar mensaje</span>
-            <svg class="form-btn-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          </button>
+          <div class="form-group">
+            <label for="form-mensaje">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Tu mensaje
+            </label>
+            <textarea id="form-mensaje" name="mensaje" rows="3" placeholder="Cuéntanos cómo quieres ayudar..." required></textarea>
+          </div>
+          <button type="submit" class="form-btn">Enviar mensaje</button>
         </div>
       </form>
 
