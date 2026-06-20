@@ -226,6 +226,16 @@ const setupIntersectionObserver = () => {
   document.querySelectorAll('.animate-on-scroll').forEach((el) => {
     observer.observe(el);
   });
+
+  // Observe staggered animation items
+  document.querySelectorAll('.stagger-item').forEach((el) => {
+    observer.observe(el);
+  });
+
+  // Observe cascade cards (testimonials, impact)
+  document.querySelectorAll('.cascade-card').forEach((el) => {
+    observer.observe(el);
+  });
 };
 
 document.addEventListener('DOMContentLoaded', () => {
